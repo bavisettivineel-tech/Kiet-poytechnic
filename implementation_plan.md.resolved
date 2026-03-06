@@ -1,0 +1,60 @@
+# KIET Diploma Portal - Implementation Plan
+
+## Tech Stack
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18 + Vite |
+| Styling | Tailwind CSS v3 |
+| Backend | Supabase (PostgreSQL, Auth, Storage, Edge Functions) |
+| Routing | React Router v6 |
+| State | React Context + Hooks |
+| Charts | Recharts |
+| Excel Import | XLSX (SheetJS) |
+
+## Architecture Overview
+
+```mermaid
+graph TD
+    A[React Frontend] --> B[Supabase Client]
+    B --> C[Supabase Auth]
+    B --> D[Supabase Database]
+    B --> E[Supabase Storage]
+    B --> F[Supabase Edge Functions]
+    C --> G[Role-Based Access]
+    D --> H[PostgreSQL + RLS]
+```
+
+## Database Schema
+
+### Tables
+1. **profiles** - User profiles with roles
+2. **students** - Student records (up to 3000)
+3. **ctpos_assignments** - Faculty year assignments
+4. **attendance** - Daily attendance records (indexed)
+5. **internal_marks** - Mid/assignment marks
+6. **fee_structures** - Fee type definitions
+7. **fee_payments** - Payment records
+8. **transport** - Bus registration
+9. **notices** - College notices
+10. **system_config** - System settings
+
+## Roles & Permissions
+| Role | Dashboard | Key Capabilities |
+|------|-----------|-----------------|
+| Admin | Full system overview | Create accounts, manage everything |
+| Management | Finance + analytics | Fees, transport, ID cards, reports |
+| Admin Staff | Student data view | Update students, assist with fees |
+| CTPOS | Academic management | Attendance, marks, student entry |
+| Student | Personal dashboard | View own data only |
+
+## Implementation Phases
+1. ✅ Project Setup (Vite + Tailwind + Supabase)
+2. ✅ Authentication System
+3. ✅ Dashboard Layouts per Role
+4. ✅ Student Management
+5. ✅ Attendance System
+6. ✅ Internal Marks Module
+7. ✅ Fee Management
+8. ✅ Transport System
+9. ✅ Notices
+10. ✅ Analytics & Reports
